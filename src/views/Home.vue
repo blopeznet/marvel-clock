@@ -1,15 +1,23 @@
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted,onUnmounted } from 'vue';
 import { useComicStore } from '../stores/comicStore';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const comicStore = useComicStore();
+let intervalId;
 
 /**
  * Load data
  */
 onMounted(async () => {
   await comicStore.fetchMarvelComics();
+  intervalId = setInterval(() => {
+    comicStore.currentIndex = (comicStore.currentIndex + 1) % comicStore.comicData.length;
+  }, 5000); // Cambia cada 3 segundos, ajusta si es necesario
+});
+
+onUnmounted(() => {
+  clearInterval(intervalId);
 });
 
 /**
@@ -44,7 +52,7 @@ const navigateToSettings = () => {
       {{ comicStore.currentTime }}
     </div>
 
-    <div class="calendar">
+    <div class="calendar" v-if=false>
       <p>{{ comicStore.currentDate }}</p>
     </div>
 
