@@ -38,7 +38,13 @@ const navigateToSettings = () => {
     </div>
 
     <!-- Clock -->
-    <div class="clock">{{ comicStore.currentTime }}</div>
+    <div class="clock">
+      {{ comicStore.currentTime }}
+    </div>
+
+    <div class="calendar">
+      <p>{{ comicStore.currentDate }}</p>
+    </div>
 
     <!-- Comic Background and Foreground Images -->
     <div v-if="comicStore.comicData.length" class="comic-background">
@@ -59,7 +65,7 @@ const navigateToSettings = () => {
 
     <!-- Comic Info (Title) -->
     <div v-if="comicStore.comicData.length" class="comic-info">
-      <h2>{{ comicStore.comicData[comicStore.currentIndex].title }}</h2>
+      {{ comicStore.comicData[comicStore.currentIndex].title }}
     </div>
 
     <!-- Control Buttons -->

@@ -29,6 +29,7 @@ export const useComicStore = defineStore('comicStore', () => {
   const currentIndex = ref(0);
   const changeInterval = 5000;
   const currentTime = ref('');
+  const currentDate = ref('');
   const isFullScreen = ref(false);
   const isLoading = ref(false);
 
@@ -69,6 +70,7 @@ export const useComicStore = defineStore('comicStore', () => {
   const updateTime = () => {
     const now = new Date();
     currentTime.value = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    currentDate.value = now.toLocaleDateString([]);
   };
 
   // Fetch Marvel Comics from API
@@ -164,6 +166,7 @@ export const useComicStore = defineStore('comicStore', () => {
     isAnimated,
     currentIndex,
     currentTime,
+    currentDate,
     isFullScreen,
     isLoading,
     isPopupOpen,

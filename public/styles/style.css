@@ -45,13 +45,34 @@ html, body {
   top: 60px;
   right: 0;
   font-size: 6rem;
-  font-weight: bold;
   color: white;
   background-color: rgba(255, 0, 0, 0.2);
   padding: 10px 20px;
   width: 30vw;
   max-width: 300px;
   z-index: 1000;
+  text-align: start;
+}
+
+.calendar {
+  position: fixed;
+  top: 210px;
+  right: 0;
+  color: white;
+  background-color: rgba(255, 0, 0, 0.2);
+  padding: 10px 20px;
+  width: 30vw;
+  max-width: 300px;
+  z-index: 1000;
+}
+
+.calendar p {
+  position:relative;
+  top:0;
+  padding: 0;
+  margin: 0;
+  text-align: start;
+  font-size: 2rem;
 }
 
 /* Background images */
@@ -121,8 +142,8 @@ html, body {
   padding: 16px;
   width: 30vw;
   text-align: left;
-  z-index: 3;
-  font-size: 1rem;
+  z-index: 3;  
+  font-size: 2rem;  
 }
 
 /* Control buttons */
