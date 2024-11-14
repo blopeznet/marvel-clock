@@ -117,34 +117,51 @@ html, body {
 }
 
 /* Main cover */
+
+/* Main cover */
 .comic-foreground {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Asegura que ocupa toda la altura de la pantalla */
   opacity: 0;
-  width: 90%;
-  max-width: 500px;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 2;
 }
 
 .comic-foreground.visible {
-  transition: opacity 1s ease-out-in;
-  opacity: 1;
-
+  animation: slideInOut 10s ease-in-out forwards;
 }
 
+/* Imagen en primer plano */
 .comic-img-foreground {
-  width: 100%;
-  height: auto;
-  max-height: 90vh;
+  max-width: 90vw;  /* Ocupa el 90% del ancho de la ventana gráfica */
+  max-height: 100vh; /* Ocupa el 100% del alto de la pantalla */
   object-fit: contain;
-  z-index: 2;
 }
+
+/* Animación para deslizamiento de izquierda a derecha */
+@keyframes slideInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%); /* Comienza fuera de la pantalla por la izquierda */
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(0); /* Aparece y se centra */
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(0); /* Pausa en el centro */
+  }
+ 
+}
+
+
 
 /* Comic info main screen */
 .comic-info {
