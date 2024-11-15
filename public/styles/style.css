@@ -30,11 +30,10 @@ html, body {
   position: fixed;
   top: 20px; 
   left: 20px; 
-  width: 150px; 
+  width: 75px; 
   height: auto; 
   z-index: 10; 
   border-radius: 8px; 
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
   opacity: 0.1;
 }
 
@@ -118,7 +117,6 @@ html, body {
 
 /* Main cover */
 
-/* Main cover */
 .comic-foreground {
   display: flex;
   justify-content: center;
@@ -127,38 +125,39 @@ html, body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh; /* Asegura que ocupa toda la altura de la pantalla */
+  height: 100vh;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   z-index: 2;
 }
 
 .comic-foreground.visible {
-  animation: slideInOut 10s ease-in-out forwards;
+  animation: slideInOutSimple 5s linear forwards;
 }
 
-/* Imagen en primer plano */
 .comic-img-foreground {
-  max-width: 90vw;  /* Ocupa el 90% del ancho de la ventana gráfica */
-  max-height: 100vh; /* Ocupa el 100% del alto de la pantalla */
+  max-width: 90vw;
+  max-height: 100vh;
   object-fit: contain;
 }
 
-/* Animación para deslizamiento de izquierda a derecha */
-@keyframes slideInOut {
+@keyframes slideInOutSimple {
   0% {
     opacity: 0;
-    transform: translateX(-100%); /* Comienza fuera de la pantalla por la izquierda */
+    transform: translateX(-100%);
   }
-  20% {
+  10% {
     opacity: 1;
-    transform: translateX(0); /* Aparece y se centra */
+    transform: translateX(0);
   }
-  80% {
+  90% {
     opacity: 1;
-    transform: translateX(0); /* Pausa en el centro */
+    transform: translateX(0);
   }
- 
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
 }
 
 

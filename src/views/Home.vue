@@ -13,7 +13,7 @@ onMounted(async () => {
   await comicStore.fetchMarvelComics();
   intervalId = setInterval(() => {
     comicStore.currentIndex = (comicStore.currentIndex + 1) % comicStore.comicData.length;
-  }, 5000); // Cambia cada 3 segundos, ajusta si es necesario
+  }, 10000); // Cambia cada 10 segundos, ajusta si es necesario
 });
 
 onUnmounted(() => {
